@@ -1,26 +1,44 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
+import AppBar from './Components/AppToolbar/AppToolbar';
+import Country from './Components/Country/Country';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    display: 'flex',
+  },
+  content: {
+    flexGrow: 1,
+    padding: theme.spacing(3),
+  },
+  toolbar: theme.mixins.toolbar,
+}));
 
 function App() {
+  const classes = useStyles();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className={classes.root}>
+        <AppBar />
+        <div className={classes.content}>
+          <div className={classes.toolbar}></div>
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/country" component={Country} />
+          </Switch>
+        </div>
+      </div>
+    </Router>
   );
 }
+
+const Home = () => (
+  <div>
+    <h3>Home Page</h3>
+  </div>
+);
 
 export default App;
