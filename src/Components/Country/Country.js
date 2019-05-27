@@ -81,7 +81,7 @@ export default class Country extends React.Component {
         }
         <Grid container spacing={2}>
           { this.state.countries.map((data, index) => (
-            <Grid item xs={4} key={index}>
+            <Grid item xs={12} md={6} lg={4} key={index}>
               <Card>
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="h2">
