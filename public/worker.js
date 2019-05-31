@@ -6,7 +6,7 @@ this.addEventListener('activate', event => {
   const currentCachelist = [CACHE_NAME];
   event.waitUntil(
     caches.keys()
-      .then(keyList =>
+      .then(keyList => 
         Promise.all(keyList.map(key => {
           if (!currentCachelist.includes(key)) {
             return caches.delete(key);
@@ -30,6 +30,7 @@ this.addEventListener('install', function (event) {
               // We could also cache assets like CSS and images
               const urlsToCache = [
                 '/',
+                '/country',
                 assets['main.js']
               ];
               cache.addAll(urlsToCache);

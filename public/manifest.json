@@ -1,6 +1,6 @@
 {
   "short_name": "Kevin Giovanni",
-  "name": "Create React App Sample",
+  "name": "Kevin Giovanni",
   "icons": [
     {
       "src": "favicon.ico",
@@ -15,6 +15,6 @@
   ],
   "start_url": "/",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#0277bd",
+  "background_color": "#0277bd"
 }

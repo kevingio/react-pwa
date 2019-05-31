@@ -72,17 +72,9 @@ function ButtonAppBar(props) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [open, setOpen] = React.useState(false);
   const [selected, setSelected] = React.useState(null);
-  const list = [
-    [
-      name => 'Country',
-      path => '/'
-    ]
-  ];
-  const [drawerList, setDrawerList] = React.useState(list)
 
   function handleClick() {
     setOpen(!open);
-    setDrawerList(drawerList);
   }
 
   function handleDrawerToggle() {
@@ -96,7 +88,12 @@ function ButtonAppBar(props) {
   const drawer = (
     <div>
       <List>
-        <ListItem button to="/" component={Link}>
+        <ListItem
+          button
+          to="/"
+          component={Link}
+          onClick={event => handleListItemClick(event, '/')}
+          >
           <CardMedia
             style={{ width: '100%', height: '50px' }}
             image="https://upload.wikimedia.org/wikipedia/en/3/3f/2011.Cerner.logo.png"
@@ -114,7 +111,7 @@ function ButtonAppBar(props) {
           button
           component={Link}
           to="/country"
-          selected={ selected === '/country' }
+          selected={ selected === '/country' || window.location.pathname === '/country' }
           onClick={event => handleListItemClick(event, '/country')}
           >
           <ListItemIcon>
@@ -122,11 +119,17 @@ function ButtonAppBar(props) {
           </ListItemIcon>
           <ListItemText primary="Country" />
         </ListItem>
-        <ListItem button>
+        <ListItem
+          button
+          component={Link}
+          to="/marvel"
+          selected={selected === '/marvel' || window.location.pathname === '/marvel'}
+          onClick={event => handleListItemClick(event, '/marvel')}
+          >
           <ListItemIcon>
             <DraftsIcon />
           </ListItemIcon>
-          <ListItemText primary="Drafts" />
+          <ListItemText primary="Marvel" />
         </ListItem>
         <ListItem button onClick={handleClick}>
           <ListItemIcon>
