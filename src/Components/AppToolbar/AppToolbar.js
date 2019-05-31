@@ -122,14 +122,14 @@ function ButtonAppBar(props) {
         <ListItem
           button
           component={Link}
-          to="/marvel"
-          selected={selected === '/marvel' || window.location.pathname === '/marvel'}
-          onClick={event => handleListItemClick(event, '/marvel')}
+          to="/language"
+          selected={selected === '/language' || window.location.pathname === '/language'}
+          onClick={event => handleListItemClick(event, '/language')}
           >
           <ListItemIcon>
             <DraftsIcon />
           </ListItemIcon>
-          <ListItemText primary="Marvel" />
+          <ListItemText primary="Language" />
         </ListItem>
         <ListItem button onClick={handleClick}>
           <ListItemIcon>

@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import AppBar from './Components/AppToolbar/AppToolbar';
 import Country from './Components/Country/Country';
+import Language from './Components/Language/Language';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
@@ -28,6 +29,7 @@ function App() {
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/country" component={Country} />
+            <Route path="/language" component={Language} />
           </Switch>
         </div>
       </div>
