@@ -10,6 +10,9 @@ const theme = createMuiTheme({
     primary: {
       main: '#0277bd',
     },
+    error: {
+      main: '#db0000'
+    }
   },
 });
 

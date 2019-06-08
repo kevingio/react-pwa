@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import DynamicImport from './DynamicImport';
 
 import AppBar from './Components/AppToolbar/AppToolbar';
-import Country from './Components/Country/Country';
-import Language from './Components/Language/Language';
+import Gallery from './Components/Gallery/Gallery';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
@@ -18,6 +18,14 @@ const useStyles = makeStyles(theme => ({
   toolbar: theme.mixins.toolbar,
 }));
 
+const Country = (props) => (
+  <DynamicImport load={() => import('./Components/Country/Country')}>
+    {(Component) => Component === null
+      ? <p>Loading</p>
+      : <Component {...props} />}
+  </DynamicImport>
+)
+
 function App() {
   const classes = useStyles();
   return (
@@ -29,7 +37,7 @@ function App() {
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/country" component={Country} />
-            <Route path="/language" component={Language} />
+            <Route path="/gallery" component={Gallery} />
           </Switch>
         </div>
       </div>

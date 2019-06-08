@@ -33,7 +33,7 @@ export default class Country extends React.Component {
       axios.get('https://restcountries-v1.p.rapidapi.com/name/' + this.state.name, {
         headers: {
           'X-RapidAPI-Host': 'restcountries-v1.p.rapidapi.com',
-          'X-RapidAPI-Key': 'b247b756e2mshd1f681d7c4d09d9p11f61ejsnc4a1fde3adf7'
+          'X-RapidAPI-Key': process.env.REACT_APP_COUNTRY_API_KEY
         }
       }).then((response) => {
         this.setState({ countries: response.data });
@@ -49,7 +49,7 @@ export default class Country extends React.Component {
         <Typography variant="h6" gutterBottom>
           Find Country Information
         </Typography>
-          <Typography variant="body1" gutterBottom>
+        <Typography variant="body1" gutterBottom>
             Enter keyword to get country detail information
         </Typography>
         <form noValidate autoComplete="off" onSubmit={this.searchCountry}>
